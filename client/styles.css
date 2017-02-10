@@ -13,3 +13,7 @@ Feel free to use it if you like. */
   height: 20px;
   fill: #fff;
 }
+
+#enemy0 {
+  fill: red;
+}
