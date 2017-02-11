@@ -8,12 +8,15 @@ Feel free to use it if you like. */
   display: block;
 }
 
-.enemy {
+circle {
   width: 20px;
   height: 20px;
-  fill: #fff;
+  fill: pink;
 }
 
-#enemy0 {
-  fill: red;
+.enemy {
+  /*display: block;*/
+  /*text-indent: -9999px;*/
+  /*background-image: url(client/asteroid.png);*/
+  /*background-size: cover;*/
 }
