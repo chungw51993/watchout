@@ -11,34 +11,32 @@ var gameScore = {
   hiscore: 0
 };
 
-var axes = {
-  x: d3.scale
-       .linear()
-       .domain([0, 100])
-       .range([0, gameOptions.width]),
-
-  y: d3.scale
-       .linear()
-       .domain([0, 100])
-       .range([0, gameOptions.height])
-};
+// var axes = {
+//   x: d3.scale
+//        .linear()
+//        .domain([0, 100])
+//        .range([0, gameOptions.width]),
+//
+//   y: d3.scale
+//        .linear()
+//        .domain([0, 100])
+//        .range([0, gameOptions.height])
+// };
 
 var gameBoard = d3.select('.board').append('svg:svg')
                   .attr('width', gameOptions.width)
                   .attr('height', gameOptions.height);
 
-//gameBoard.append('pattern:pattern').attr('id', 'image').append('image:image').attr('xlink:href', 'asteroid.png');
 
 var makeEnemies = function (nEnemies) {
   var enemyArray = [];
   for (var i = 0; i < nEnemies; i++) {
-    var enemies = gameBoard.append('circle:circle')
+    var enemies = gameBoard.append('image')
                     .attr('id', 'enemy' + i)
                     .attr('class', 'enemy')
-                    .attr('xlink:href', 'asteroid.png')
-                    .attr('cx', Math.random() * gameOptions.width)
-                    .attr('cy', Math.random() * gameOptions.height)
-                    .attr('r', 10);
+                    .attr('x', Math.random() * gameOptions.width)
+                    .attr('y', Math.random() * gameOptions.height)
+                    .attr('xlink:href', 'asteroid.png');
     enemyArray.push(enemies);
   }
   return enemyArray;
@@ -49,8 +47,8 @@ var moveEnemies = function (enemyData) {
     gameBoard.select('#enemy' + i)
       .transition()
       .duration(1500)
-      .attr('cx', Math.random() * gameOptions.width)
-      .attr('cy', Math.random() * gameOptions.height);
+      .attr('x', Math.random() * gameOptions.width)
+      .attr('y', Math.random() * gameOptions.height);
     gameScore.score++;
   }
 };
